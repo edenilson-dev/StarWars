@@ -2,17 +2,21 @@ package com.el.starwars.domain;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "planet")
 public class Planet implements Serializable{
 	/**
 	 * Edenilson Mendonça
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
+	@Id
 	private String id;
 	private String nome;
 	private String clima;
-	private String Terreno;
+	private String terreno;
 	
 	public Planet() {
 	}
@@ -47,23 +51,20 @@ public class Planet implements Serializable{
 		this.clima = clima;
 	}
 
-
 	public String getTerreno() {
-		return Terreno;
+		return terreno;
 	}
-
-
+	
 	public void setTerreno(String terreno) {
-		Terreno = terreno;
+		this.terreno = terreno;
 	}
-
 
 	public Planet(String id, String nome, String clima, String terreno) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.clima = clima;
-		Terreno = terreno;
+		this.terreno = terreno;
 	}
 
 	@Override
