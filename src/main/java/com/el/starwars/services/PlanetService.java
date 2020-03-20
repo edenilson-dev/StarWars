@@ -30,6 +30,11 @@ public class PlanetService {
 		return planetRepository.save(planet);
 	}
 	
+	public void delete(String id) {
+		findById(id);
+		planetRepository.deleteById(id);
+	}
+	
 	public Planet fromDTO(PlanetDTO planetdto) {
 		return new Planet(planetdto.getId(), planetdto.getNome(), planetdto.getClima(), planetdto.getTerreno());
 	}
