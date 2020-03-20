@@ -35,6 +35,19 @@ public class PlanetService {
 		planetRepository.deleteById(id);
 	}
 	
+	public Planet update(Planet planet) {
+		Planet newPlanet = findById(planet.getId());
+		updateData(newPlanet, planet);
+		return planetRepository.save(newPlanet);
+	}
+	
+	private void updateData(Planet newPlanet, Planet planet) {
+		newPlanet.setNome(planet.getNome());
+		newPlanet.setClima(planet.getClima());
+		newPlanet.setTerreno(planet.getTerreno());
+		
+	}
+
 	public Planet fromDTO(PlanetDTO planetdto) {
 		return new Planet(planetdto.getId(), planetdto.getNome(), planetdto.getClima(), planetdto.getTerreno());
 	}
