@@ -20,9 +20,9 @@ public class Instantiation implements CommandLineRunner{
 		// TODO Auto-generated method stub
 		
 		planetRepository.deleteAll();
-		Planet jupiter = new Planet(null, "Júpiter", "a mena", "acidentado");
-		Planet plutao = new Planet(null, "plutão", "frio", "remoto");
-		Planet urano = new Planet(null, "Urano", "remoto", "ok");
+		Planet jupiter = new Planet(null, "Alderaan", "a mena", "acidentado");
+		Planet plutao = new Planet(null, "Bespin", "frio", "remoto");
+		Planet urano = new Planet(null, "Endor", "remoto", "ok");
 		
 		planetRepository.saveAll(Arrays.asList(jupiter, plutao, urano));
 		

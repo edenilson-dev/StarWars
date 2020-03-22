@@ -14,15 +14,17 @@ public class PlanetDTO implements Serializable {
 	private String nome;
 	private String clima;
 	private String terreno;
+	private int aparicoes;
 	
 	public PlanetDTO() {
 	}
 	
-	public PlanetDTO(Planet obj) {
-		id = obj.getId();
-		nome = obj.getNome();
-		clima = obj.getClima();
-		terreno = obj.getTerreno();
+	public PlanetDTO(Planet obj, int aparicoes) {
+		this.id = obj.getId();
+		this.nome = obj.getNome();
+		this.clima = obj.getClima();
+		this.terreno = obj.getTerreno();
+		this.aparicoes = aparicoes;
 	}
 
 	public String getId() {
@@ -57,6 +59,13 @@ public class PlanetDTO implements Serializable {
 		this.terreno = terreno;
 	}
 	
+	public int getAparicoes() {
+		return aparicoes;
+	}
+	
+	public void setAparicoes(int aparicoes) {
+		this.aparicoes = aparicoes;
+	}
 	
 }
 
