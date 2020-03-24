@@ -17,6 +17,14 @@ public class PlanetService {
 	@Autowired
 	private PlanetRepository planetRepository;
 	
+	/**
+	 * Consulta todos os Planetas com numero de vezes em aparições na base de dados
+	 * 
+	 * @param 
+	 * @return List<Planets> 
+	 * 
+	 */
+	
 	public List<Planet> findAll(){
 		return planetRepository.findAll();
 	}
@@ -25,6 +33,13 @@ public class PlanetService {
 		Optional<Planet> planet = planetRepository.findById(id);
 		return planet.orElseThrow(()-> new ObjectNotFoundException("Planet não encontrado"));
 	}
+	
+	/**
+	 * Cadastra um planeta na base de dados
+	 * 
+	 * @param planet
+	 * @return Planet
+	 */
 	
 	public Planet insert(Planet planet) {
 		return planetRepository.save(planet);
@@ -35,10 +50,29 @@ public class PlanetService {
 		planetRepository.deleteById(id);
 	}
 	
+	/**
+	 * Atualiza um planeta na base de dados por Planeta
+	 * 
+	 * @param planet
+	 * @return Planet
+	 */
+	
 	public Planet update(Planet planet) {
 		Planet newPlanet = findById(planet.getId());
 		updateData(newPlanet, planet);
 		return planetRepository.save(newPlanet);
+	}
+	
+	
+	/**
+	 * Buscar Planeta na base de dados
+	 * 
+	 * @param String
+	 * @return Planet
+	 */
+	
+	public Planet buscarPorNome(String nome){
+		return planetRepository.findByNome(nome);
 	}
 	
 	private void updateData(Planet newPlanet, Planet planet) {

@@ -8,4 +8,6 @@ import com.el.starwars.domain.Planet;
 @Repository
 public interface PlanetRepository extends MongoRepository<Planet, String>{
 
+	Planet findByNome(String nome);
+
 }
